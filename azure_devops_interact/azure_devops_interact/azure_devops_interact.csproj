@@ -13,4 +13,8 @@
     <None Include="../../README.md" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Services.Client" Version="16.201.0-preview" />
+  </ItemGroup>
+
 </Project>
