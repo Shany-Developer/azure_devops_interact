@@ -33,7 +33,7 @@ namespace azure_devops_interact
             return repo;
         }
 
-        public async Task<bool> CommitFiles(GitRef branch, string commitMessage, List<Tuple<string, string>> files)
+        public async Task<bool> CommitFiles(GitRef branch, string commitMessage, IEnumerable<Tuple<string, string, VersionControlChangeType>> files)
         {
             var changes = new List<GitChange>();
 
@@ -41,7 +41,7 @@ namespace azure_devops_interact
             {
                 var change = new GitChange()
                 {
-                    ChangeType = VersionControlChangeType.Add,
+                    ChangeType = file.Item3,
                     Item = new GitItem() { Path = file.Item1 },
                     NewContent = new ItemContent()
                     {

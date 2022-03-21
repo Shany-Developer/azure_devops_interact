@@ -2,6 +2,7 @@
 
 using azure_devops_interact;
 using console_bootstrap;
+using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.VisualStudio.Services.Common;
 using Microsoft.VisualStudio.Services.WebApi;
 
@@ -42,7 +43,7 @@ try
     var branch = await git.GetBranch(branchName);
 
     //Commit changes to branch
-    await git.CommitFiles(branch, $"Sample commit", new List<Tuple<string, string>> { Tuple.Create("folder1/file1.cs", "Sample code here") });
+    await git.CommitFiles(branch, $"Sample commit", new[] { Tuple.Create("folder1/file1.cs", "Sample code here", VersionControlChangeType.Add) });
 
     //Get existing pull request from branch to default branch
     var pr = await git.GetPullRequest(branch);
