@@ -169,5 +169,25 @@ namespace azure_devops_interact
             return workitem;
         }
 
+
+        public string GetBranchUrl(GitRef branch)
+        {
+            return GetBranchUrl(branch.Name);
+        }
+
+        public string GetBranchUrl(string branchName)
+        {
+            return $"https://dev.azure.com/KrauseGroup/{Context.ProjectName}/_git/{Context.RepoName}?path=%2F&version=GB{branchName}&_a=contents";
+        }
+
+        public string GetPrUrl(GitPullRequest pr)
+        {
+            return GetPrUrl(pr.PullRequestId);
+        }
+
+        public string GetPrUrl(int id)
+        {
+            return $"https://dev.azure.com/KrauseGroup/{Context.ProjectName}/_git/{Context.RepoName}/pullrequest/{id}";
+        }
     }
 }
