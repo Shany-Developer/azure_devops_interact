@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="azure_devops_interact" Version="1.0.0-alpha" />
+    <PackageReference Include="azure_devops_interact" Version="1.0.0" />
     <PackageReference Include="console_bootstrap" Version="1.0.4" />
   </ItemGroup>
 
